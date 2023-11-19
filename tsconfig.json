@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,7 +16,8 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"]
+      "@common/*": ["common/*"],
+      "@ms/*": ["games/marvel-snap/*"]
     },
     "plugins": [
       {
@@ -24,13 +25,6 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "generate-react-cli.js",
-    "next.config.js"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }
