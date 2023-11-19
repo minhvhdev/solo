@@ -5,13 +5,13 @@ import { WithBackdropDetailProps, withBackdropDetail } from '@ms/HOCs';
 import { TCard } from '@ms/types';
 import styles from './Card.css';
 
-type CardMSProps = WithBackdropDetailProps &
+type CardProps = WithBackdropDetailProps &
   HTMLAttributes<HTMLDivElement> & {
     cardInfo: TCard;
     className?: string;
   };
 
-const CardMs = withBackdropDetail((props: CardMSProps) => {
+const Card = withBackdropDetail((props: CardProps) => {
   const {
     cardInfo,
     className = '',
@@ -23,8 +23,6 @@ const CardMs = withBackdropDetail((props: CardMSProps) => {
   const imgLink = useMemo(() => {
     return `url('/assets/images/marvel-snap/cards/${cardInfo.name}.webp`;
   }, [cardInfo.name]);
-
-  console.log(args);
 
   return (
     <div
@@ -45,4 +43,4 @@ const CardMs = withBackdropDetail((props: CardMSProps) => {
   );
 });
 
-export default CardMs;
+export default Card;

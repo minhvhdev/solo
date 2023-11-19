@@ -1,17 +1,20 @@
-import { useMemo } from 'react';
+'use client';
+import { DragEventHandler, useMemo } from 'react';
 
-import { CardMS } from '@ms/components/molecules';
-import { TCard } from '@ms/types';
+import { useSelector } from 'react-redux';
+
+import { getDomData, setDragData } from '@common/helpers';
+import { Card } from '@ms/components/molecules';
+import { selectGamePlay } from '@ms/redux/selectors/gamePlaySelector';
 import styles from './HandCards.css';
 
-type HandCardsProps = {
-  cards: TCard[];
-};
+const HandCards = () => {
+  const {
+    yourInfo: { handCards },
+  } = useSelector(selectGamePlay);
 
-const HandCards = (props: HandCardsProps) => {
-  const { cards } = props;
   const handCardSizeRatio = useMemo(() => {
-    const numCards = cards.length;
+    const numCards = handCards.length;
     if (numCards < 6) {
       return 38;
     } else if (numCards === 6) {
@@ -19,16 +22,33 @@ const HandCards = (props: HandCardsProps) => {
     } else {
       return 54;
     }
-  }, [cards.length]);
+  }, [handCards.length]);
+
+  const handleDrag: DragEventHandler<HTMLDivElement> = (e) => {
+    e.currentTarget.style.display = 'none';
+  };
+
+  const handleDragStart: DragEventHandler<HTMLDivElement> = (e) => {
+    const id = getDomData(e, 'id');
+    setDragData(e, id);
+  };
+
+  const handleDragEnd: DragEventHandler<HTMLDivElement> = (e) => {
+    e.currentTarget.style.display = 'block';
+  };
 
   return (
     <div className={`${styles.handCardsTwc} aspect-[${handCardSizeRatio}/10]`}>
-      {cards.map((card) => (
-        <CardMS
-          key={card.name}
+      {handCards.map((card) => (
+        <Card
+          data-id={card.id}
+          key={card.id}
           className={styles.cardTwc}
           cardInfo={card}
           draggable
+          onDrag={handleDrag}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
         />
       ))}
     </div>

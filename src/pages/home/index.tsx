@@ -1,8 +1,91 @@
+'use client';
+import { useEffect } from 'react';
 import Head from 'next/head';
 
+import { useDispatch } from 'react-redux';
+
 import { PlayingTemplate } from '@ms/components/templates';
+import { ECardStatus } from '@ms/enums';
+import { startGameAction } from '@ms/redux/slices/gamePlaySlice';
+import { TCard } from '@ms/types';
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const cards: TCard[] = [
+      {
+        name: 'thanos',
+        ability: '',
+        id: '',
+        power: 0,
+        currentPower: 0,
+        energy: 0,
+        currentEnergy: 0,
+        status: ECardStatus.ON_DECK,
+      },
+      {
+        name: 'ebony-maw',
+        ability: '',
+        id: '',
+        power: 0,
+        currentPower: 0,
+        energy: 0,
+        currentEnergy: 0,
+        status: ECardStatus.ON_DECK,
+      },
+      {
+        name: 'pig',
+        ability: '',
+        id: '',
+        power: 0,
+        currentPower: 0,
+        energy: 0,
+        currentEnergy: 0,
+        status: ECardStatus.ON_DECK,
+      },
+      {
+        name: 'demon',
+        ability: '',
+        id: '',
+        power: 0,
+        currentPower: 0,
+        energy: 0,
+        currentEnergy: 0,
+        status: ECardStatus.ON_DECK,
+      },
+      {
+        name: 'demon',
+        ability: '',
+        id: '',
+        power: 0,
+        currentPower: 0,
+        energy: 0,
+        currentEnergy: 0,
+        status: ECardStatus.ON_DECK,
+      },
+      {
+        name: 'demon',
+        ability: '',
+        id: '',
+        power: 0,
+        currentPower: 0,
+        energy: 0,
+        currentEnergy: 0,
+        status: ECardStatus.ON_DECK,
+      },
+      {
+        name: 'demon',
+        ability: '',
+        id: '',
+        power: 0,
+        currentPower: 0,
+        energy: 0,
+        currentEnergy: 0,
+        status: ECardStatus.ON_DECK,
+      },
+    ];
+    dispatch(startGameAction(cards));
+  });
   return (
     <>
       <Head>
@@ -11,119 +94,7 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PlayingTemplate
-        commonInfo={{
-          currentRound: 0,
-          snapTimes: 0,
-        }}
-        locations={[
-          {
-            name: 'altar-of-death',
-            yourPower: 0,
-            opponentPower: 0,
-          },
-          {
-            name: 'altar-of-death',
-            yourPower: 0,
-            opponentPower: 0,
-          },
-          {
-            name: 'altar-of-death',
-            yourPower: 0,
-            opponentPower: 0,
-          },
-        ]}
-        yourInfo={{
-          handCards: [
-            {
-              name: 'thanos',
-              ability: '',
-            },
-            {
-              name: 'ebony-maw',
-              ability: '',
-            },
-            {
-              name: 'pig',
-              ability: '',
-            },
-            {
-              name: 'demon',
-              ability: '',
-            },
-            {
-              name: 'demon',
-              ability: '',
-            },
-            {
-              name: 'demon',
-              ability: '',
-            },
-            // {
-            //   name: 'demon',
-            //   ability: '',
-            // },
-          ],
-          deckCards: [],
-          energy: 0,
-          heal: 0,
-          playedCards: [
-            [
-              {
-                name: 'thanos',
-                ability: '',
-              },
-              {
-                name: 'ebony-maw',
-                ability: '',
-              },
-              {
-                name: 'pig',
-                ability: '',
-              },
-              {
-                name: 'demon',
-                ability: '',
-              },
-            ],
-            [],
-            [],
-          ],
-          snapped: false,
-          isPlaying: false,
-          destroyedCards: [],
-          discardedCards: [],
-        }}
-        opponentInfo={{
-          heal: 0,
-          playedCards: [
-            [
-              {
-                name: 'thanos',
-                ability: '',
-              },
-              {
-                name: 'ebony-maw',
-                ability: '',
-              },
-              {
-                name: 'pig',
-                ability: '',
-              },
-              {
-                name: 'demon',
-                ability: '',
-              },
-            ],
-            [],
-            [],
-          ],
-          snapped: false,
-          isPlaying: false,
-          destroyedCards: [],
-          discardedCards: [],
-        }}
-      />
+      <PlayingTemplate />
     </>
   );
 };
