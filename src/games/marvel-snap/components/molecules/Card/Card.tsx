@@ -26,7 +26,7 @@ const Card = withBackdropDetail((props: CardProps) => {
 
   return (
     <div
-      className={`${styles.cardTwc} ${className}`}
+      className={`${styles.card} ${className}`}
       style={{
         backgroundImage: imgLink,
       }}
@@ -35,7 +35,7 @@ const Card = withBackdropDetail((props: CardProps) => {
       {...args}
     >
       {!isShowDetail && (
-        <PowerDisplay isWin={false} className={styles.currentPowerTwc}>
+        <PowerDisplay isWin={false} className={styles.currentPower}>
           {cardInfo.currentPower}
         </PowerDisplay>
       )}

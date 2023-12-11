@@ -27,7 +27,7 @@ const Location = withBackdropDetail((props: LocationProps) => {
 
   return (
     <div
-      className={`${className} ${styles.locationTwc} `}
+      className={`${className} ${styles.location} `}
       style={{
         backgroundImage: imgLink,
       }}
@@ -36,10 +36,10 @@ const Location = withBackdropDetail((props: LocationProps) => {
     >
       {!isShowDetail && (
         <>
-          <PowerDisplay isWin={false} className={styles.yourPowerTwc}>
+          <PowerDisplay isWin={false} className={styles.yourPower}>
             {yourPower}
           </PowerDisplay>
-          <PowerDisplay isWin={false} className={styles.opponentPowerTwc}>
+          <PowerDisplay isWin={false} className={styles.opponentPower}>
             {opponentPower}
           </PowerDisplay>
         </>

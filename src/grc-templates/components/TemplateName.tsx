@@ -4,7 +4,7 @@ type TemplateNameProps = {};
 
 const TemplateName = (props: TemplateNameProps) => {
   return (
-    <div className={styles.templateNameTwc}>
+    <div className={styles.templateName}>
       <div>Edit here</div>
     </div>
   );

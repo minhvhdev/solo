@@ -11,16 +11,16 @@ fs.readFile(filePath, 'utf8', function (err, data) {
   if (err) {
     return console.error(err);
   }
-  const regex = /(Twc:\s*'.*')/g;
+  const regex = /'([^']*)'/g;
   let sortedData = '';
   data.match(regex).forEach((item) => {
+    console.log(item)
     const classes = item.split(`'`)[1];
     if (sortedData) {
       sortedData = sortedData.replace(classes, sortClasses(classes));
     } else {
       sortedData = data.replace(classes, sortClasses(classes));
     }
-    console.log(sortedData);
   });
 
   fs.writeFile(filePath, sortedData, 'utf8', function (err) {

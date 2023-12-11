@@ -7,7 +7,7 @@ type AvatarProps = {
 
 const Avatar = (props: AvatarProps) => {
   const { imgUrl, playerName } = props;
-  return <div className={styles.avatarTwc}>useState</div>;
+  return <div className={styles.avatar}>useState</div>;
 };
 
 export default Avatar;

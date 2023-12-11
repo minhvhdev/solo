@@ -1,17 +1,17 @@
 import { ButtonHTMLAttributes } from 'react';
 
-import { ReactChild } from '@common/types';
-import styles from './ButtonMS.css';
+import { TReactChild } from '@common/types';
+import styles from './Button.css';
 
-type ButtonMSProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'sm' | 'md' | 'lg';
   position?: 'left' | 'center' | 'right';
   color?: 'normal' | 'danger';
   className?: string;
-  children: ReactChild;
+  children: TReactChild;
 };
 
-const ButtonMS = (props: ButtonMSProps) => {
+const Button = (props: ButtonProps) => {
   const {
     size = 'md',
     position = 'center',
@@ -24,11 +24,11 @@ const ButtonMS = (props: ButtonMSProps) => {
   return (
     <button
       type="button"
-      className={`${styles.buttonTwc} ${styles.positionTwc[position]}`}
+      className={`${styles.button} ${styles.position[position]}`}
       {...argument}
     >
       <span
-        className={`${styles.spanTwc} ${styles.sizeTwc[size]} ${styles.typeTwc[color]} ${styles.positionTwc[position]} ${className}`}
+        className={`${styles.span} ${styles.size[size]} ${styles.type[color]} ${styles.position[position]} ${className}`}
       >
         {children}
       </span>
@@ -36,4 +36,4 @@ const ButtonMS = (props: ButtonMSProps) => {
   );
 };
 
-export default ButtonMS;
+export default Button;

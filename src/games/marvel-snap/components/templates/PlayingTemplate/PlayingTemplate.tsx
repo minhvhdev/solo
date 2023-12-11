@@ -4,22 +4,22 @@ import styles from './PlayingTemplate.css';
 
 const PlayingTemplate = () => {
   return (
-    <div className={styles.containerTwc}>
-      <div className={styles.leftTwc}>
+    <div className={styles.container}>
+      <div className={styles.left}>
         <Avatar imgUrl={''} playerName={''} />
         <ButtonMS color="danger" position="left">
           Retreat
         </ButtonMS>
       </div>
-      <div className={styles.centerTwc}>
-        <div className={styles.arenaTwc}>
+      <div className={styles.center}>
+        <div className={styles.arena}>
           <Arena />
         </div>
-        <div className={styles.yourHandTwc}>
+        <div className={styles.yourHand}>
           <HandCards />
         </div>
       </div>
-      <div className={styles.rightTwc}>
+      <div className={styles.right}>
         <Avatar imgUrl={''} playerName={''} />
         <ButtonMS position="right">{'Waiting\n3/6'}</ButtonMS>
       </div>

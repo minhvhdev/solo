@@ -38,12 +38,12 @@ const HandCards = () => {
   };
 
   return (
-    <div className={`${styles.handCardsTwc} aspect-[${handCardSizeRatio}/10]`}>
+    <div className={`${styles.handCards} aspect-[${handCardSizeRatio}/10]`}>
       {handCards.map((card) => (
         <Card
           data-id={card.id}
           key={card.id}
-          className={styles.cardTwc}
+          className={styles.card}
           cardInfo={card}
           draggable
           onDrag={handleDrag}

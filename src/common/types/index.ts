@@ -1,1 +1,1 @@
-export type { default as ReactChild } from './ReactChild';
+export type { default as TReactChild } from './TReactChild';

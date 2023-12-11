@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .ripple-effect {
+    @apply absolute [transform:scale(0)] animate-ripple rounded-full bg-white bg-opacity-70;
+  }
+}

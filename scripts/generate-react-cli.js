@@ -2,7 +2,7 @@
  * This script to create component and page quickly. For Example:
  * yarn gen Button com a  => Button Component at common/components/atoms
  * yarn gen Card ms a    => Card component at games/marvel-snap/components/atoms
- * yarn gen login         => login page at pages/games/marvel-snap
+ * yarn gen login         => login page at pages/
  * yarn gen home ms       => home page at pages/games/marvel-snap
  */
 

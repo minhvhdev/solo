@@ -25,8 +25,8 @@ const PlayPlace = (props: PlayPlaceProps) => {
 
   return (
     <div
-      className={`${styles.playPlaceTwc} ${
-        isOpponent ? styles.reverseOrderTwc : styles.normalOrderTwc
+      className={`${styles.playPlace} ${
+        isOpponent ? styles.reverseOrder : styles.normalOrder
       }`}
       onDrop={handleDrop}
       onDragOver={defaultDragOver}
@@ -34,7 +34,7 @@ const PlayPlace = (props: PlayPlaceProps) => {
       {cards.map((card, index) => (
         <div
           key={card.id}
-          className={`${styles.cardsTwc} [grid-area:item${index}] ${
+          className={`${styles.cards} [grid-area:item${index}] ${
             (index % 2 === 0 && !isOpponent) || (index % 2 !== 0 && isOpponent)
               ? 'justify-end'
               : ''

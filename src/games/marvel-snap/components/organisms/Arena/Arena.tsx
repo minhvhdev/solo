@@ -9,17 +9,17 @@ const Arena = () => {
   const { commonInfo, yourInfo, opponentInfo } = useSelector(selectGamePlay);
 
   return (
-    <div className={styles.arenaTwc}>
+    <div className={styles.arena}>
       {commonInfo.locations.map((location, index) => (
-        <div key={location.id} className={styles.locationPlayTwc}>
-          <div className={styles.playPlaceTwc}>
+        <div key={location.id} className={styles.locationPlay}>
+          <div className={styles.playPlace}>
             <PlayPlace
               locationIndex={index}
               cards={opponentInfo.playedCards[index]}
               isOpponent
             />
           </div>
-          <div className={styles.locationTwc}>
+          <div className={styles.location}>
             <Location
               key={location.id}
               name={location.name}
@@ -27,7 +27,7 @@ const Arena = () => {
               opponentPower={location.opponentPower}
             />
           </div>
-          <div className={styles.playPlaceTwc}>
+          <div className={styles.playPlace}>
             <PlayPlace
               locationIndex={index}
               cards={yourInfo.playedCards[index]}

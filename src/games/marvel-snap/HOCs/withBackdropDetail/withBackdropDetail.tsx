@@ -26,13 +26,13 @@ function withBackdropDetail<P>(
         {visible && (
           <>
             <div
-              className={styles.backdropTwc}
+              className={styles.backdrop}
               onClick={hideBackdrop}
               onKeyDown={hideBackdrop}
             />
             <WrappedComponent
               {...props}
-              className={styles.contentDetailTwc}
+              className={styles.contentDetail}
               isShowDetail={visible}
             />
           </>

@@ -11,6 +11,9 @@ export const theme = {
   },
   extend: {
     colors: {
+      primary: '#123456',
+      secondary: '#013294',
+      danger: 'red',
       'ms-danger': {
         100: '#ba3344',
         200: '#501f1b',
@@ -28,6 +31,12 @@ export const theme = {
       center: '50%',
     },
     keyframes: {
+      ripple: {
+        to: {
+          transform: 'scale(4)',
+          opacity: 0,
+        },
+      },
       'ms-look': {
         '0%': {
           opacity: 0,
@@ -45,6 +54,7 @@ export const theme = {
       },
     },
     animation: {
+      ripple: 'ripple .6s linear',
       'ms-look': 'ms-look .3s ease-in-out 1',
     },
   },
