@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    @apply portrait:absolute portrait:left-[100%] portrait:h-[100vw] portrait:w-[100vh] portrait:[transform-origin:0_0] portrait:[transform:rotate(90deg)];
+  }
+  .ripple-effect {
+    @apply pointer-events-none absolute animate-ripple rounded-full bg-white bg-opacity-70 [transform:scale(0)];
+  }
+}
