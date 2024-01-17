@@ -9,10 +9,11 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const Button = (props: ButtonProps) => {
-  const { children, color, ...args } = props;
+  const { children, color, onClick, ...args } = props;
 
   const handleOnClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     rippleEffect(event);
+    onClick && onClick(event);
   };
 
   let buttonClasses;
@@ -30,7 +31,6 @@ const Button = (props: ButtonProps) => {
   // }
   return (
     <button
-      disabled
       className={`${styles.button} buttonClasses`}
       type="button"
       onClick={handleOnClick}

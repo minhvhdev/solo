@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import { ASSET_PLAYING_CARDS } from '@common/constants';
 import styles from './PlayingCard.css';

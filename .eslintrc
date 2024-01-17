@@ -29,7 +29,7 @@
             "position": "before"
           },
           {
-            "pattern": "@ms/**",
+            "pattern": "@bj/**",
             "group": "internal",
             "position": "before"
           },

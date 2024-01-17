@@ -1,10 +1,10 @@
 export const DATA_GAMES = [
   {
     name: 'Black Jack',
-    url: '/black-jack',
+    url: 'black-jack',
   },
   {
     name: 'Phom',
-    url: '/phom',
+    url: 'phom',
   },
 ];

@@ -1,18 +1,23 @@
 import { useRouter } from 'next/router';
 
+import { useDispatch } from 'react-redux';
+
+import { createRoom } from '@common/redux/slices/peer.slice';
+
 type IndexPageProps = {};
 
 const BASE_URL = '/games/black-jack';
 
 const IndexPage = (props: IndexPageProps) => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const handleSinglePlay = () => {
     router.push(`${BASE_URL}/single-play`);
   };
 
   const handleCreateRoom = () => {
-    router.push('/black-jack/single-play');
+    dispatch(createRoom());
   };
 
   const handleJoinRoom = () => {

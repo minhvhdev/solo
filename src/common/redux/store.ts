@@ -1,15 +1,47 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { createWrapper } from 'next-redux-wrapper';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+// import thunk from 'redux-thunk';
 
-import marvelSnapReducer from '@ms/redux/marvelSnapReducer';
-import { userSliceReducer } from './slices';
+import { encryptTransform } from '@common/helpers/redux.helper';
+import blackJackReducer from '@bj/redux/blackJackReducer';
+import { peerReducer, playerReducer } from './slices';
 
-const store = configureStore({
-  reducer: {
-    user: userSliceReducer,
-    marvelSnap: marvelSnapReducer,
-  },
+const persistConfig = {
+  key: 'root',
+  storage,
+  transforms: [encryptTransform()],
+};
+
+//Add Reducers here
+const rootReducer = combineReducers({
+  peer: peerReducer,
+  player: playerReducer,
+  blackJack: blackJackReducer,
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export default store;
+const makeStore = () => {
+  // if (typeof window === 'undefined') {
+  //   return configureStore({
+  //     reducer: combineReducers({}),
+  //   });
+  // }
+  const store = configureStore({
+    reducer: rootReducer,
+  });
+  // store._persistor = persistStore(store);
+  return store;
+};
+
+const store = makeStore();
+
+const persistor = persistStore(store);
+
+export type TRootState = ReturnType<typeof store.getState>;
+export type TStore = ReturnType<typeof makeStore>;
+
+export const storeWrapper = createWrapper<TStore>(makeStore);
+export default { store, persistor };
